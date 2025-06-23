@@ -61,7 +61,7 @@ export default function Dashboard() {
   const updateSuggestions = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/quest/recommended",
+        "https://solosparklll.onrender.com/api/quest/recommended",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -82,7 +82,7 @@ export default function Dashboard() {
   const fetchMoodData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/analytics/mood-trend",
+        "https://solosparklll.onrender.com/api/analytics/mood-trend",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -130,20 +130,20 @@ export default function Dashboard() {
     const fetchData = async () => {
       try {
         const profileRes = await axios.get(
-          "http://localhost:5000/api/user/profile",
+          "https://solosparklll.onrender.com/api/user/profile",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
         );
         setUserId(profileRes.data.profile._id);
 
-        const questRes = await axios.get("http://localhost:5000/api/quest", {
+        const questRes = await axios.get("https://solosparklll.onrender.com/api/quest", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setQuests(questRes.data.quests);
 
         const userQuestRes = await axios.get(
-          "http://localhost:5000/api/user-quest",
+          "https://solosparklll.onrender.com/api/user-quest",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -162,7 +162,7 @@ export default function Dashboard() {
 
   const handleCreateQuest = async () => {
     try {
-      await axios.post("http://localhost:5000/api/quest", form, {
+      await axios.post("https://solosparklll.onrender.com/api/quest", form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Quest created!");
@@ -175,7 +175,7 @@ export default function Dashboard() {
   const assignQuest = async (questId) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/user-quest",
+        "https://solosparklll.onrender.com/api/user-quest",
         { questId },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -226,7 +226,7 @@ export default function Dashboard() {
           <div className="bg-zinc-900 p-5 rounded-xl shadow text-white">
             <h2 className="text-xl font-semibold mb-3">✨ AI Suggestions</h2>
             <div className="overflow-y-auto h-60 rounded-2xl pr-1">
-              {suggestions.map((q, idx) => (
+              {suggestions.length?suggestions.map((q, idx) => (
                 <div
                   key={idx}
                   className="bg-zinc-800 transition p-3 rounded mb-2"
@@ -240,7 +240,7 @@ export default function Dashboard() {
                     Assign
                   </button>
                 </div>
-              ))}
+              )):<div>Tell Your Mood Atleast Twice</div>}
             </div>
             <button
               onClick={updateSuggestions}

@@ -18,7 +18,7 @@ function Onboarding() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/user/personality", {
+      await axios.post("https://solosparklll.onrender.com/api/user/personality", {
         introvert,
         openness,
         preferredQuestTypes: preferred

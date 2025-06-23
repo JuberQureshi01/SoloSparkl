@@ -10,7 +10,7 @@ function StatsSection() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/analytics/summary", {
+        const res = await axios.get("https://solosparklll.onrender.com/api/analytics/summary", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setStats(res.data);

@@ -17,7 +17,7 @@ function LogMood() {
     try {
       setLoading(true);
       await axios.post(
-        "http://localhost:5000/api/mood",
+        "https://solosparklll.onrender.com/api/mood",
         { mood, notes },
         { headers: { Authorization: `Bearer ${token}` } }
       );

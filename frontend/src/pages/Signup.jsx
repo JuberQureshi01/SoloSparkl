@@ -19,7 +19,7 @@ function Signup() {
     setLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/signup', form);
+      const res = await axios.post('https://solosparklll.onrender.com/api/signup', form);
       const { token } = res.data;
       localStorage.setItem('token', token);
 

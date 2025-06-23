@@ -19,7 +19,7 @@ function Login() {
     const toastId = toast.loading("Logging you in...");
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/login', form);
+      const res = await axios.post('https://solosparklll.onrender.com/api/login', form);
       localStorage.setItem('token', res.data.token);
       toast.success("Login successful!", { id: toastId });
       navigate('/');

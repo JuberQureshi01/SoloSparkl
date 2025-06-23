@@ -14,7 +14,7 @@ function WatchReflection() {
   useEffect(() => {
     const fetchReflections = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/reflection/view/${id}`, {
+        const res = await axios.get(`https://solosparklll.onrender.com/api/reflection/view/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setCurrent(res.data.current);

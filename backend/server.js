@@ -12,15 +12,24 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin:"*",
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials:true,
+}))
 app.use(express.json());
 
 // DB & Cloudinary setup
 connectDB();
 configureCloudinary();
 
+app.get("/working", (req, res) => {
+  res.send("working");
+});
+
 // Routes
 app.use('/api', routes);
+
 
 // Start server
 const PORT = process.env.PORT || 5000;

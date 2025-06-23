@@ -19,7 +19,7 @@ function MoodChart() {
 
   const fetchMoodData = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/analytics/mood-trend', {
+      const res = await axios.get('https://solosparklll.onrender.com/api/analytics/mood-trend', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const converted = res.data.moodTrend.map((entry) => ({

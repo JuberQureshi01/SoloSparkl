@@ -9,7 +9,7 @@ function SmartQuests() {
 
   const fetchSmartQuests = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/quest/recommended", {
+      const res = await axios.get("https://solosparklll.onrender.com/api/quest/recommended", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setQuests(res.data.recommended);

@@ -63,7 +63,7 @@ function Timeline() {
   useEffect(() => {
     const fetchTimeline = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/analytics/emotion-timeline", {
+        const res = await axios.get("https://solosparklll.onrender.com/api/analytics/emotion-timeline", {
           headers: { Authorization: `Bearer ${token}` }
         });
         const mapped = res.data.timeline.map(entry => ({

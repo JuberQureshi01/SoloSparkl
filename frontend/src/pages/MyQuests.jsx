@@ -12,7 +12,7 @@ function MyQuests() {
 
   const fetchAssigned = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/user-quest", {
+      const res = await axios.get("https://solosparklll.onrender.com/api/user-quest", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAssigned(res.data.assigned);
@@ -26,7 +26,7 @@ function MyQuests() {
   const completeQuest = async (userQuestId) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/user-quest/complete",
+        "https://solosparklll.onrender.com/api/user-quest/complete",
         { userQuestId },
         {
           headers: { Authorization: `Bearer ${token}` },
