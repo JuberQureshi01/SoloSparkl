@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
@@ -10,9 +11,12 @@ function StatsSection() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get("https://solosparklll.onrender.com/api/analytics/summary", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await axios.get(
+          "https://solosparklll.onrender.com/api/analytics/summary",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setStats(res.data);
       } catch (err) {
         toast.error("Failed to load stats");
@@ -20,14 +24,30 @@ function StatsSection() {
         setLoading(false);
       }
     };
-    fetchStats();
-  }, []);
+    if (token) {
+      fetchStats();
+    }
+  }, [token]);
 
   if (!token) {
     return (
-      <p className="text-center text-red-600 dark:text-red-400 mt-10">
-        Please login to view your stats.
-      </p>
+      <div className="text-center mt-10">
+        <p className="text-red-600 dark:text-red-400 mb-4">
+          Please login to view your stats.
+        </p>
+        <div className="flex justify-center gap-4">
+          <Link to="/login">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+              Login
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+              Signup
+            </button>
+          </Link>
+        </div>
+      </div>
     );
   }
 
