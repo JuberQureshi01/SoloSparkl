@@ -18,7 +18,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/log-mood" element={<LogMood />} />
+        <Route path="/logmood" element={<LogMood />} />
         <Route path="/my-quests" element={<MyQuests />} />
         <Route path="/watch-reflection/:id" element={<WatchReflection />} />
         <Route path="/submit-reflection" element={<SubmitReflection />} />
