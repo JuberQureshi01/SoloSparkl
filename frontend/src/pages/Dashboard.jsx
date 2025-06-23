@@ -123,7 +123,7 @@ export default function Dashboard() {
   };
 
   const logMood = () => {
-    window.location.href = "/log-mood";
+    window.location.href = "/logmood";
   };
 
   useEffect(() => {
